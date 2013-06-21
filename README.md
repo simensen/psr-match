@@ -66,3 +66,27 @@ The following can be expeccted by running `example.php`:
 
     // findNamespacedResource('Foo\Bar\Baz.php')
     overrides/Baz.php
+
+This is setup in the following way:
+
+    $classLoader = new ClassLoader;
+
+    // Register path mappings, still supports ordering.
+    $classLoader->addNamespace("Foo\\Bar", "src");
+    $classLoader->addNamespace("Foo\\Bar", "overrides", true);
+
+
+    // Register the PSR-X autoloader
+    $classLoader->register();
+
+
+Purpose of this Example
+-----------------------
+
+The only thing that changed from the General-Purpose PSR-X Autoloader
+implementation is that a trailing `\` is added to each path as it is added.
+
+This example is not meant to be bulletproof. It is only meant to show that there
+is a lot more in common between PSR-X and PSR-R, especially in the matching
+algorithm, than might be immediately obvious without spending a lot of time
+thinking about this.
