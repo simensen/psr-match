@@ -86,6 +86,17 @@ Purpose of this Example
 The only thing that changed from the General-Purpose PSR-X Autoloader
 implementation is that a trailing `\` is added to each path as it is added.
 
+Beyond that, of course the `loadClass` method has been changed. However, the
+integration with the `match_path` algorithm is very straightforward.
+
+A PSR-X autoloader could of course write these rules itself, but the point
+of this exercise is to show that the rules set for by PSR Path Matching can
+be used out of the box to support PSR-X.
+
+
+Disclaimer
+----------
+
 This example is not meant to be bulletproof. It is only meant to show that there
 is a lot more in common between PSR-X and PSR-R, especially in the matching
 algorithm, than might be immediately obvious without spending a lot of time
